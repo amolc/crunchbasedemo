@@ -1,24 +1,27 @@
 <ion-pane>
-      <div class="bar bar-header" style="background: darkcyan;">
+      <div class="bar bar-header">
         <!-- <button class="button icon ion-navicon"></button> -->
-          <button class="button icon ion-email" style="position: absolute;right: 0;">
-          </button>
+          <span class="feedback_name">Feedback</span>
+          <img src="img/mail.svg" class="feedback_icon">
       </div>
       <div class="bar bar-subheader" style="margin-bottom:20px;">
         <h2 class="title">Search</h2>
-        <div class="list list-inset" style="margin-top: 30px; ">
-        <label class="item item-input" style="margin-top: 10px;">
+        <div class="list list-inset" style="margin-top: 30px;padding-bottom: 25px; ">
+        <h2 class="name">CrunchBase</h2>
+        <label class="item item-input search_box" style="margin-top: 20px;">
+          <input type="text">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Search" >
         </label>
       </div>
       </div>
       <ion-content scroll-watch>
-        <div class="list" style="margin-top: 162px;">
-          <a class="item" href="#" ng-repeat="comp in companylist | filter:searchText">
+        <div class="list home_wrapper">
+          <!-- <a class="item" href="#" ng-repeat="comp in companylist | filter:searchText">
             {{comp.company}}
-          </a>
+          </a> -->
           <!-- <a class="item" href="#"> Github </a> -->
+          <i class="icon ion-search placeholder-icon home_placeholder_icon"></i>
+          <h4 class="home_placeholder">Start typing to find orgnization on crunchbase</h4>
         </div>
       </ion-content>
 </ion-pane>
