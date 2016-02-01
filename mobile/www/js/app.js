@@ -34,6 +34,12 @@ angular.module('starter', ['ionic' ,'ngCordova','starter.controllers'])
       url: '/home',
       templateUrl: 'templates/home.html',
       controller:'logincontroller'
+  })
+
+  .state('detailpage', {
+      url: '/detailpage',
+      templateUrl: 'templates/details_page.html',
+      controller:'logincontroller'
   });
 
   $urlRouterProvider.otherwise('home');
