@@ -1,0 +1,22 @@
+<ion-pane>
+      <ion-header-bar class="bar-positive">
+        <h3 class="title">Feedback</h3>
+         <i class="icon ion-search placeholder-icon"></i>
+      </ion-header-bar>
+      
+      <ion-header-bar class="bar-subheader bar-dark" style="height:97px;">
+         Search CrunchBase
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Search" ng-model="searchText">
+        </label>
+      </ion-header-bar>
+      
+      <ion-content scroll-watch style="margin-top:30%;">
+        <div class="list" >
+          <a class="item" href="#" ng-repeat="comp in companylist | filter:searchText">
+            {{comp.company}}
+          </a>
+        </div>
+      </ion-content>
+</ion-pane>
