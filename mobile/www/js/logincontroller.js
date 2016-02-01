@@ -26,6 +26,10 @@ angular.module('starter.controllers')
     {
       id:5,
       company:'Github'
+    },
+    {
+      id:6,
+      company:'AA'
     }
   ]  
 
