@@ -9,27 +9,33 @@ angular.module('starter.controllers')
   $scope.companylist = [
     {
       id:1,
-      company:'A'
+      company:'Github',
+      image:"img/1.png"
     },
     {
       id:2,
-      company:'B'
+      company:'Airbnb',
+      image:"img/5.jpg"
     },
     {
       id:3,
-      company:'D'
+      company:'Stripe',
+      image:"img/3.png"
     },
     {
       id:4,
-      company:'E'
+      company:'Groupon',
+      image:"img/2.png"
     },
     {
       id:5,
-      company:'Github'
+      company:'Google+',
+      image:"img/7.png"
     },
     {
       id:6,
-      company:'AA'
+      company:'Apple',
+      image:"img/8.png"
     }
   ]  
 

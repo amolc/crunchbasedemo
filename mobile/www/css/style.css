@@ -103,9 +103,22 @@ input[type="text"]{
     font-size: 54px;
 }
 .home_wrapper{
-    margin-top: 197px;
     text-align: center;
     padding-top: 30%;
+}
+.item-avatar > img{
+    border-radius: 7px !important;
+    max-height: 60px !important;
+    max-width: 60px !important;
+}
+.item-avatar{
+    padding-left: 88px;
+    min-height: 92px;
+}
+.item h2 {
+    margin: 4px 0 2px 0;
+    font-size: 16px;
+    font-weight: bold;
 }
 .feedback_icon{
     width: 23px;
@@ -120,3 +133,8 @@ input[type="text"]{
     top: 6px;
     font-size: 13px;
 }
+.popup-container .popup {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+}    

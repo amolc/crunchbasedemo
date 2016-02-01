@@ -15,13 +15,15 @@
       </div>
       </div>
       <ion-content scroll-watch>
-        <div class="list home_wrapper">
-        <div ng-if="searchText">
-          <a class="item" href="#" ng-repeat="comp in companylist | filter:searchText">
-            {{comp.company}}
-          </a>
+          <div class="list" style="margin-top: 197px;">
+              <a class="item item-avatar" href="#" ng-if="searchText" ng-repeat="comp in companylist | filter:searchText">
+                <img ng-src="{{comp.image}}">
+                <h2 >{{comp.company}}</h2>
+                <p>Its features focus on users.</p>
+              </a>
+          </div>
         </div>
-          <!-- <a class="item" href="#"> Github </a> -->
+        <div class="list home_wrapper">
           <i class="icon ion-search placeholder-icon home_placeholder_icon" ng-if="!searchText"></i>
           <h4 class="home_placeholder" ng-if="!searchText">Start typing to find orgnization on crunchbase</h4>
         </div>
