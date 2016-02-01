@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
 
-.controller('logincontroller', function($scope, $http, $state,$location) {
+.controller('logincontroller', function($scope, $http, $state,$location,$ionicPopup) {
 
 	 $scope.init = function() {
     
@@ -39,6 +39,32 @@ angular.module('starter.controllers')
      });
   }
 
+  $scope.openPopup = function() {
+
+    var customTemplate =
+      '<ion-toggle>enable</ion-toggle>' +
+      '<label class="item item-input"><input type="text" placeholder="your address"></label>';
+
+    $ionicPopup.show({
+      template: customTemplate,
+      title: 'alternative location',
+      subTitle: 'select this option if GPS is unavailable',
+      buttons: [{
+        text: 'Cancel',
+        //type: 'button-positive',
+        onTap: function(e) {
+
+        }
+      }, {
+        text: '<b>Save</b>',
+        type: 'button-positive',
+        onTap: function(e) {
+          
+        }
+      }]
+    });
+
+  }
   //$scope.testcruchdb();
    
    /*
