@@ -48,6 +48,7 @@ if (app.get('env') === 'development') {
 
 app.use('/', express.static(__dirname + '/public'));
 app.use('/api', express.static(__dirname + '/api'));
+app.use('/mobile', express.static(__dirname + '/mobile/www'));
 
 var crunch = require('./api/cruchsample.js');
 /*var userlogin = require('./api/userlogin.js');
