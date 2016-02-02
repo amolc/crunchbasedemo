@@ -39,43 +39,40 @@ angular.module('starter.controllers')
     }
   ]  
 
-  console.log($scope.companylist);
+  //console.log($scope.companylist);
 
   $scope.testcruchdb = function(){
-
     var compname = 'SkillSoft';
      $http.post(baseUrl + 'getsamplecompany', compname).success(function(res,req){ 
         console.log(res);
      });
   }
 
-  $scope.openPopup = function() {
+  //$scope.testcruchdb();
 
+  $scope.openPopup = function(comp) {
     var customTemplate =
-      '<ion-toggle>enable</ion-toggle>' +
-      '<label class="item item-input"><input type="text" placeholder="your address"></label>';
+      '<div class="item item-avatar">' +
+      '<img src="'+comp.image+'"/>' +
+      '<h2>'+comp.company+'</h2>' +
+      '<label>Company</lable>' + 
+      '<br/>' +
+      '<div>Its features focus on users.</div>' +  
+      '</div>';
 
     $ionicPopup.show({
       template: customTemplate,
-      title: 'alternative location',
-      subTitle: 'select this option if GPS is unavailable',
+      title: '<h3>' + comp.company + '</h3>',
       buttons: [{
-        text: 'Cancel',
-        //type: 'button-positive',
+        text: 'X',
         onTap: function(e) {
 
-        }
-      }, {
-        text: '<b>Save</b>',
-        type: 'button-positive',
-        onTap: function(e) {
-          
         }
       }]
     });
 
   }
-  //$scope.testcruchdb();
+  
    
    /*
     @function userlogin

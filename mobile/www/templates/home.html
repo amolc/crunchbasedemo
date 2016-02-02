@@ -16,7 +16,7 @@
       </div>
       <ion-content scroll-watch>
           <div class="list" style="margin-top: 197px;">
-              <a class="item item-avatar" href="#" ng-if="searchText" ng-repeat="comp in companylist | filter:searchText">
+              <a class="item item-avatar" href="#" ng-if="searchText" ng-repeat="comp in companylist | filter:searchText" ng-click="openPopup(comp)">
                 <img ng-src="{{comp.image}}">
                 <h2 >{{comp.company}}</h2>
                 <p>Its features focus on users.</p>

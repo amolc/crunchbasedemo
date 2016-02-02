@@ -1,5 +1,5 @@
 
-angular.module('starter', ['ionic' ,'ngCordova','starter.controllers'])
+angular.module('starter', ['ionic' ,'ngCordova','starter.controllers','ngSanitize'])
 
 .run(function($ionicPlatform,$cordovaDevice) {
   $ionicPlatform.ready(function() {
