@@ -10,32 +10,63 @@ angular.module('starter.controllers')
     {
       id:1,
       company:'Github',
-      image:"img/1.png"
+      image:"img/1.png",
+      address:"San Francisco, CA , USA",
+      linkedinlink:"linkedin.com/company/github",
+      facebooklink:"fb.com/github",
+      twitterlink:"twitter.com/github",
+      website:"github.com"
     },
     {
       id:2,
       company:'Airbnb',
-      image:"img/5.jpg"
+      image:"img/5.jpg",
+      address:"San Francisco, CA , USA",
+      linkedinlink:"linkedin.com/company/airbnb",
+      facebooklink:"fb.com/airbnb",
+      twitterlink:"twitter.com/airbnb",
+      website:"airbnb.com"
     },
     {
       id:3,
       company:'Stripe',
-      image:"img/3.png"
+      image:"img/3.png",
+      address:"San Francisco, CA , USA",
+      linkedinlink:"linkedin.com/company/stripe",
+      facebooklink:"fb.com/stripe",
+      twitterlink:"twitter.com/stripe",
+      website:"stripe.com"
+
     },
     {
       id:4,
       company:'Groupon',
-      image:"img/2.png"
+      image:"img/2.png",
+      address:"San Francisco, CA , USA",
+      linkedinlink:"linkedin.com/company/groupon",
+      facebooklink:"fb.com/groupon",
+      twitterlink:"twitter.com/groupon",
+      website:"groupon.com"
     },
     {
       id:5,
       company:'Google+',
-      image:"img/7.png"
+      image:"img/7.png",
+      address:"San Francisco, CA , USA",
+      linkedinlink:"linkedin.com/company/google-plus",
+      facebooklink:"fb.com/google-plus",
+      twitterlink:"twitter.com/google-plus",
+      website:"plus.google.com"
     },
     {
       id:6,
       company:'Apple',
-      image:"img/8.png"
+      image:"img/8.png",
+      address:"San Francisco, CA , USA",
+      linkedinlink:"linkedin.com/company/apple",
+      facebooklink:"fb.com/india.apple",
+      twitterlink:"twitter.com/apple",
+      website:"apple.com"
     }
   ]  
 
@@ -58,13 +89,39 @@ angular.module('starter.controllers')
       '<label>Company</lable>' + 
       '<br/>' +
       '<div>Its features focus on users.</div>' +  
-      '</div>';
+      '</div>' +
+      '<div class="list" style="margin-top: 1px;">' +
+        '<a class="item item-icon-left" href="#" style="border-width: 0px;">' +
+            '<i class="icon ion-location"></i>' +
+            comp.address +
+        '</a>' +
+
+        '<a class="item item-icon-left" href="#" style="border-width: 0px;">' +
+            '<i class="icon ion-social-linkedin"></i>' +
+            comp.linkedinlink +
+        '</a>' +
+
+        '<a class="item item-icon-left" href="#" style="border-width: 0px;">' +
+            '<i class="icon ion-social-facebook"></i>' +
+            comp.facebooklink +
+        '</a>' +
+
+        '<a class="item item-icon-left" href="#" style="border-width: 0px;">' +
+            '<i class="icon ion-social-twitter"></i>' +
+            comp.twitterlink +
+        '</a>' +
+
+        '<a class="item item-icon-left" href="#" style="border-width: 0px;">' +
+            '<i class="icon ion-earth"></i>' +
+            comp.website +
+        '</a>' +
+     '</div>';
 
     $ionicPopup.show({
       template: customTemplate,
       title: '<h3>' + comp.company + '</h3>',
       buttons: [{
-        text: 'X',
+        text:  '<i class="ion-close-round"></i>',
         onTap: function(e) {
 
         }

@@ -137,6 +137,7 @@ input[type="text"]{
     width: 100%;
     height: 100%;
     max-height: 100%;
+    background: white;
 }  
 
 .popup-buttons{
@@ -144,3 +145,21 @@ input[type="text"]{
     top: 0px;
     right: 1px;
 }  
+
+a.item.item-icon-left {
+    border-width: 0px;
+    font-size: 14px;
+}
+
+.item-icon-left .icon {
+    left: 11px;
+    font-size: 18px;
+}
+.popup-body .item-avatar{
+    border: none !important;
+}
+
+.popup-buttons .button:last-child {
+    margin-right: 0px;
+    background: none;
+}
