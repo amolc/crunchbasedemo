@@ -1,22 +1,31 @@
 <ion-pane>
-      <ion-header-bar class="bar-positive">
-        <h3 class="title">Feedback</h3>
-         <i class="icon ion-search placeholder-icon"></i>
-      </ion-header-bar>
-      
-      <ion-header-bar class="bar-subheader bar-dark" style="height:97px;">
-         Search CrunchBase
-        <label class="item item-input">
+      <div class="bar bar-header">
+        <!-- <button class="button icon ion-navicon"></button> -->
+          <span class="feedback_name">Feedback</span>
+          <img src="img/mail.svg" class="feedback_icon">
+      </div>
+      <div class="bar bar-subheader" style="margin-bottom:20px;">
+        <h2 class="title">Search</h2>
+        <div class="list list-inset" style="margin-top: 30px;padding-bottom: 25px; ">
+        <h2 class="name">CrunchBase</h2>
+        <label class="item item-input search_box" style="margin-top: 20px;">
+          <input type="text" ng-model="searchText">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Search" ng-model="searchText">
         </label>
-      </ion-header-bar>
-      
-      <ion-content scroll-watch style="margin-top:30%;">
-        <div class="list" >
-          <a class="item" href="#" ng-repeat="comp in companylist | filter:searchText">
-            {{comp.company}}
-          </a>
+      </div>
+      </div>
+      <ion-content scroll-watch>
+          <div class="list" style="margin-top: 197px;">
+              <a class="item item-avatar" href="#" ng-if="searchText" ng-repeat="comp in companylist | filter:searchText" ng-click="openPopup(comp)">
+                <img ng-src="{{comp.image}}">
+                <h2 >{{comp.company}}</h2>
+                <p>Its features focus on users.</p>
+              </a>
+          </div>
+        </div>
+        <div class="list home_wrapper">
+          <i class="icon ion-search placeholder-icon home_placeholder_icon" ng-if="!searchText"></i>
+          <h4 class="home_placeholder" ng-if="!searchText">Start typing to find orgnization on crunchbase</h4>
         </div>
       </ion-content>
 </ion-pane>

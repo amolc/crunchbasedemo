@@ -82,6 +82,12 @@ angular.module('starter.controllers')
   //$scope.testcruchdb();
 
   $scope.openPopup = function(comp) {
+    var websiteadd = "http://www." + comp.website;
+    var linkedinadd = "http://www." + comp.linkedinlink;
+    var facebookadd = "http://www." + comp.facebooklink;
+    var twitteradd = "http://www." + comp.twitterlink;
+    var location = "https://www.google.co.in/maps/place/" + comp.address;
+   
     var customTemplate =
       '<div class="item item-avatar">' +
       '<img src="'+comp.image+'"/>' +
@@ -91,32 +97,32 @@ angular.module('starter.controllers')
       '<div>Its features focus on users.</div>' +  
       '</div>' +
       '<div class="list" style="margin-top: 1px;">' +
-        '<a class="item item-icon-left" href="#" style="border-width: 0px;">' +
+        '<a class="item item-icon-left" href="'+location+'" style="border-width: 0px;">' +
             '<i class="icon ion-location"></i>' +
             comp.address +
         '</a>' +
 
-        '<a class="item item-icon-left" href="#" style="border-width: 0px;">' +
+        '<a class="item item-icon-left" href="'+linkedinadd+'" style="border-width: 0px;">' +
             '<i class="icon ion-social-linkedin"></i>' +
             comp.linkedinlink +
         '</a>' +
 
-        '<a class="item item-icon-left" href="#" style="border-width: 0px;">' +
+        '<a class="item item-icon-left" href="'+facebookadd+'" style="border-width: 0px;">' +
             '<i class="icon ion-social-facebook"></i>' +
             comp.facebooklink +
         '</a>' +
 
-        '<a class="item item-icon-left" href="#" style="border-width: 0px;">' +
+        '<a class="item item-icon-left" href="'+twitteradd+'" style="border-width: 0px;">' +
             '<i class="icon ion-social-twitter"></i>' +
             comp.twitterlink +
         '</a>' +
 
-        '<a class="item item-icon-left" href="#" style="border-width: 0px;">' +
+        '<a class="item item-icon-left" href="'+websiteadd+'" style="border-width: 0px;">' +
             '<i class="icon ion-earth"></i>' +
             comp.website +
         '</a>' +
      '</div>';
-
+     console.log(comp.website);
     $ionicPopup.show({
       template: customTemplate,
       title: '<h3>' + comp.company + '</h3>',
