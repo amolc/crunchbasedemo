@@ -1,4 +1,10 @@
 {
-  "name": "mobile",
-  "app_id": ""
+  "name": "proxy-example",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/v/3/",
+      "proxyUrl": "https://api.crunchbase.com"
+    }
+  ]
 }

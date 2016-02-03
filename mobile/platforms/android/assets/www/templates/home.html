@@ -1,6 +1,5 @@
 <ion-pane>
       <div class="bar bar-header">
-        <!-- <button class="button icon ion-navicon"></button> -->
           <span class="feedback_name">Feedback</span>
           <img src="img/mail.svg" class="feedback_icon">
       </div>
@@ -8,21 +7,25 @@
         <h2 class="title">Search</h2>
         <div class="list list-inset" style="margin-top: 30px;padding-bottom: 25px; ">
         <h2 class="name">CrunchBase</h2>
+        <form ng-submit="searchcompany()">
         <label class="item item-input search_box" style="margin-top: 20px;">
-          <input type="text" ng-model="searchText">
-          <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" ng-model="companyname">
+            <span ng-click="searchcompany()">
+              <i class="icon ion-search placeholder-icon" ></i>
+            </span>
         </label>
+        </form>
       </div>
       </div>
       <ion-content scroll-watch>
           <div class="list" style="margin-top: 197px;">
-              <a class="item item-avatar" href="#" ng-if="searchText" ng-repeat="comp in companylist | filter:searchText" ng-click="openPopup(comp)">
-                <img ng-src="{{comp.image}}">
-                <h2 >{{comp.company}}</h2>
-                <p>Its features focus on users.</p>
+              <a class="item item-avatar" href="#" ng-repeat="comp in companydetails" ng-click="openPopup(comp)">
+                <img ng-src="{{comp.properties.profile_image_url}}">
+                <h2 >{{comp.properties.name}}</h2>
               </a>
           </div>
         </div>
+         
         <div class="list home_wrapper">
           <i class="icon ion-search placeholder-icon home_placeholder_icon" ng-if="!searchText"></i>
           <h4 class="home_placeholder" ng-if="!searchText">Start typing to find orgnization on crunchbase</h4>

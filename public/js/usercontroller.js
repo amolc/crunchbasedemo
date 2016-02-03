@@ -40,6 +40,10 @@ angular.module('DemoApp').controller('usercontroller', [
       @lastDate
     */
    
+    $http.get("https://api.crunchbase.com/v/3/organizations?user_key=43e29d431e62c74c0cbcc52a041cb875").success(function(res,req){ 
+     console.log(res);
+    });
+    
     $scope.addUpdateTodos = function(data,valid) {
       if(valid){
         if ($stateParams.todo_id)

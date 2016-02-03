@@ -1,12 +1,12 @@
 angular.module('starter.controllers')
 
-.controller('logincontroller', function($scope, $http, $state,$location,$ionicPopup) {
+.controller('logincontroller', function($scope, $http, $state,$location,$ionicPopup,$window) {
 
 	 $scope.init = function() {
     
    }
 
-  $scope.companylist = [
+/*  $scope.companylist = [
     {
       id:1,
       company:'Github',
@@ -68,64 +68,55 @@ angular.module('starter.controllers')
       twitterlink:"twitter.com/apple",
       website:"apple.com"
     }
-  ]  
+  ]  */
 
-  //console.log($scope.companylist);
-
-  $scope.testcruchdb = function(){
-    var compname = 'SkillSoft';
-     $http.post(baseUrl + 'getsamplecompany', compname).success(function(res,req){ 
-        console.log(res);
-     });
-  }
-
-  //$scope.testcruchdb();
-
+  
   $scope.openPopup = function(comp) {
-    var websiteadd = "http://www." + comp.website;
-    var linkedinadd = "http://www." + comp.linkedinlink;
-    var facebookadd = "http://www." + comp.facebooklink;
-    var twitteradd = "http://www." + comp.twitterlink;
-    var location = "https://www.google.co.in/maps/place/" + comp.address;
+
+    var websiteadd = comp.properties.homepage_url;
+    var linkedinadd = comp.properties.linkedin_url;
+    var facebookadd = comp.properties.facebook_url;
+    var twitteradd = comp.properties.twitter_url;
+    var location = "https://www.google.co.in/maps/place/" +  comp.properties.city_name;
    
     var customTemplate =
       '<div class="item item-avatar">' +
-      '<img src="'+comp.image+'"/>' +
-      '<h2>'+comp.company+'</h2>' +
-      '<label>Company</lable>' + 
+      '<img src="'+comp.properties.profile_image_url+'"/>' +
+      '<h2>'+comp.properties.name+'</h2>' +
+      '<label>'+comp.properties.primary_role+'</lable>' + 
       '<br/>' +
-      '<div>Its features focus on users.</div>' +  
       '</div>' +
+      '<div style="padding-left: 15px;">'+comp.properties.short_description+'</div>' + 
       '<div class="list" style="margin-top: 1px;">' +
         '<a class="item item-icon-left" href="'+location+'" style="border-width: 0px;">' +
             '<i class="icon ion-location"></i>' +
-            comp.address +
+            comp.properties.city_name +
         '</a>' +
 
         '<a class="item item-icon-left" href="'+linkedinadd+'" style="border-width: 0px;">' +
             '<i class="icon ion-social-linkedin"></i>' +
-            comp.linkedinlink +
+            comp.properties.linkedin_url +
         '</a>' +
 
         '<a class="item item-icon-left" href="'+facebookadd+'" style="border-width: 0px;">' +
             '<i class="icon ion-social-facebook"></i>' +
-            comp.facebooklink +
+            comp.properties.facebook_url +
         '</a>' +
 
         '<a class="item item-icon-left" href="'+twitteradd+'" style="border-width: 0px;">' +
             '<i class="icon ion-social-twitter"></i>' +
-            comp.twitterlink +
+            comp.properties.twitter_url +
         '</a>' +
 
         '<a class="item item-icon-left" href="'+websiteadd+'" style="border-width: 0px;">' +
             '<i class="icon ion-earth"></i>' +
-            comp.website +
+            comp.properties.homepage_url +
         '</a>' +
      '</div>';
-     console.log(comp.website);
+
     $ionicPopup.show({
       template: customTemplate,
-      title: '<h3>' + comp.company + '</h3>',
+      title: '<h3>' + comp.properties.name + '</h3>',
       buttons: [{
         text:  '<i class="ion-close-round"></i>',
         onTap: function(e) {
@@ -135,8 +126,26 @@ angular.module('starter.controllers')
     });
 
   }
-  
-   
+
+    
+    $scope.searchcompany = function(){
+     
+      var companyurl = baseUrl+"name="+$scope.companyname+"&"+"user_key="+userkey;
+      
+      $http.get(companyurl, {
+        //headers:{'Accept': 'application/json'}
+      }).success(function(res,req) { 
+        $scope.companydetails = res.data.items;
+        console.log("companydetails:",$scope.companydetails);
+      });
+    
+    }
+    
+    
+    
+
+
+    
    /*
     @function userlogin
     @type post
