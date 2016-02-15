@@ -1,34 +1,61 @@
 <ion-pane>
       <div class="bar bar-header">
-          <span class="feedback_name">Feedback</span>
-          <img src="img/mail.svg" class="feedback_icon">
+        <a ng-click = mail_to() >
+            <span class="feedback_name">Feedback</span>
+            <img src="img/mail.svg" class="feedback_icon">
+        </a>
       </div>
       <div class="bar bar-subheader" style="margin-bottom:20px;">
         <h2 class="title">Search</h2>
-        <div class="list list-inset" style="margin-top: 30px;padding-bottom: 25px; ">
+        <div class="list list-inset" style="margin: 30px;padding-bottom: 25px; ">
         <h2 class="name">CrunchBase</h2>
         <form ng-submit="searchcompany()">
-        <label class="item item-input search_box" style="margin-top: 20px;">
-            <input type="text" ng-model="companyname">
-            <span ng-click="searchcompany()">
-              <i class="icon ion-search placeholder-icon" ></i>
-            </span>
-        </label>
+        <div class="item item-input search_box" id="searchdiv" style="margin-top: 20px;">        
+            <div mass-autocomplete>
+              <input ng-model="companyname.value" mass-autocomplete-item="autocomplete_options" class="search_inpute">
+                <span ng-click="searchcompany()" class="search_btn">
+                    <i class="icon ion-search placeholder-icon" ></i>
+                </span>
+                <!-- <span class="search_btn" ng-click="clearCompany()" ng-if="companyname.value.length > 1">
+                    <i class="ion-close-circled placeholder-icon" ></i>
+                </span> -->
+            </div>
+        </div>
         </form>
       </div>
       </div>
       <ion-content scroll-watch>
           <div class="list" style="margin-top: 197px;">
-              <a class="item item-avatar" href="#" ng-repeat="comp in companydetails" ng-click="openPopup(comp)">
+              <a class="item item-avatar" ng-repeat="comp in companydetails" ng-click="showAlert(comp)">
                 <img ng-src="{{comp.properties.profile_image_url}}">
-                <h2 >{{comp.properties.name}}</h2>
+                <h2 >{{comp.properties.name | limitTo : 30}}</h2>
+                <label>{{comp.properties.primary_role}}</lable> 
+                <div class="col text-right right_ico_alignment">
+                  <i class="ion-chevron-right"></i>
+                </div>
               </a>
+              
+              <!--offline code-->
+              <!-- <a class="item item-avatar" ng-repeat="com in companylist" ng-click="showAlert1(com)">
+                <img ng-src="{{com.image}}">
+                 <h2 >{{com.name}}</h2>
+                <label>{{com.primary_role}}</lable>  
+                <span class="col text-right right_ico_alignment" >
+                  <i class="ion-chevron-right"></i>
+                </span>
+              </a> -->
+              
+
           </div>
         </div>
          
-        <div class="list home_wrapper">
-          <i class="icon ion-search placeholder-icon home_placeholder_icon" ng-if="!searchText"></i>
-          <h4 class="home_placeholder" ng-if="!searchText">Start typing to find orgnization on crunchbase</h4>
+        <div class="list home_wrapper" ng-if="!companyname.term">
+          <i class="icon ion-search placeholder-icon home_placeholder_icon"></i>
+          <h4 class="home_placeholder">Start typing to find orgnizations on crunchbase</h4>
+        </div>
+
+        <div class="list home_wrapper" ng-model="organization_not_found" ng-show="showorganization_not_found" >
+          <h4 class="home_placeholder">{{organization_not_found}}</h4>
         </div>
       </ion-content>
 </ion-pane>

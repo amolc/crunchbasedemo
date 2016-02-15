@@ -1,11 +1,7 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic' ,'ngCordova','starter.controllers','ngSanitize','MassAutoComplete'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$cordovaDevice) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -17,8 +13,43 @@ angular.module('starter', ['ionic'])
       // a much nicer keyboard experience.
       cordova.plugins.Keyboard.disableScroll(true);
     }
+
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+      ionic.Platform.ready(function(){
+    
+    });
+
   });
+    
 })
+
+.config(function($stateProvider, $urlRouterProvider,$sceDelegateProvider) {
+  $stateProvider
+
+  .state('home', {
+      url: '/home',
+      templateUrl: 'templates/home.html',
+      controller:'crunchbaseController'
+  })
+
+  .state('detailpage', {
+      url: '/detailpage',
+      templateUrl: 'templates/details_page.html',
+      controller:'crunchbaseController'
+  });
+
+  $urlRouterProvider.otherwise('home');
+
+  $sceDelegateProvider.resourceUrlWhitelist([
+    // Allow same origin resource loads.
+    'self',
+    // Allow loading from our assets domain.  Notice the difference between * and **.
+    'https://api.crunchbase.com/**'
+  ]);
+
+})
+
+

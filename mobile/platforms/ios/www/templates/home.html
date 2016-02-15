@@ -1,0 +1,41 @@
+<ion-pane>
+      <div class="bar bar-header">
+          <span class="feedback_name">Feedback</span>
+          <img src="img/mail.svg" class="feedback_icon">
+      </div>
+      <div class="bar bar-subheader" style="margin-bottom:20px;">
+        <h2 class="title">Search</h2>
+        <div class="list list-inset" style="margin-top: 30px;padding-bottom: 25px; ">
+        <h2 class="name">CrunchBase</h2>
+        <form ng-submit="searchcompany()">
+        <div class="item item-input search_box" style="margin-top: 20px;">        
+            <div mass-autocomplete>
+              <input ng-model="companyname.value" mass-autocomplete-item="autocomplete_options" style="border: none;">
+                <span ng-click="searchcompany()">
+                    <i class="icon ion-search placeholder-icon" ></i>
+                </span>
+            </div>
+        </div>
+        </form>
+      </div>
+      </div>
+      <ion-content scroll-watch>
+          <div class="list" style="margin-top: 197px;">
+              <a class="item item-avatar" href="#" ng-repeat="comp in companydetails" ng-click="openPopup(comp)">
+                <img ng-src="{{comp.properties.profile_image_url}}">
+                <h2 >{{comp.properties.name}}</h2>
+                <label>{{comp.properties.primary_role}}</lable> 
+              </a>
+          </div>
+        </div>
+         
+        <div class="list home_wrapper" ng-if="!companyname.term">
+          <i class="icon ion-search placeholder-icon home_placeholder_icon"></i>
+          <h4 class="home_placeholder">Start typing to find orgnization on crunchbase</h4>
+        </div>
+
+        <div class="list home_wrapper" ng-model="organization_not_found" ng-show="showorganization_not_found" >
+          <h4 class="home_placeholder">{{organization_not_found}}</h4>
+        </div>
+      </ion-content>
+</ion-pane>

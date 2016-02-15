@@ -1,5 +1,5 @@
 
-angular.module('starter', ['ionic' ,'ngCordova','starter.controllers','ngSanitize'])
+angular.module('starter', ['ionic' ,'ngCordova','starter.controllers','ngSanitize','MassAutoComplete'])
 
 .run(function($ionicPlatform,$cordovaDevice) {
   $ionicPlatform.ready(function() {
@@ -18,32 +18,63 @@ angular.module('starter', ['ionic' ,'ngCordova','starter.controllers','ngSanitiz
       StatusBar.styleDefault();
     }
 
-      ionic.Platform.ready(function(){
+    ionic.Platform.ready(function(){
     
     });
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+      window.open = cordova.InAppBrowser.open;
+    }
+
 
   });
     
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
-
+.config(function($stateProvider, $urlRouterProvider,$sceDelegateProvider) {
   $stateProvider
 
   .state('home', {
       url: '/home',
       templateUrl: 'templates/home.html',
-      controller:'logincontroller'
+      controller:'crunchbaseController'
   })
 
   .state('detailpage', {
       url: '/detailpage',
       templateUrl: 'templates/details_page.html',
-      controller:'logincontroller'
+      controller:'crunchbaseController'
   });
 
   $urlRouterProvider.otherwise('home');
 
+  $sceDelegateProvider.resourceUrlWhitelist([
+    // Allow same origin resource loads.
+    'self',
+    // Allow loading from our assets domain.  Notice the difference between * and **.
+    'https://api.crunchbase.com/**'
+  ]);
+
 })
+
+.directive('usSpinner2',   ['$http', '$rootScope' ,function ($http, $rootScope){
+  return {
+    link: function (scope, elm, attrs){
+      $rootScope.spinnerActive = false;
+      scope.isLoading = function () {
+          return $http.pendingRequests.length > 0;
+      };
+      scope.$watch(scope.isLoading, function (loading){
+          $rootScope.spinnerActive = loading;
+          if(loading){
+              elm.removeClass('ng-hide');
+          }else{
+              elm.addClass('ng-hide');
+          }
+      });
+    }
+  };
+}])
 
 

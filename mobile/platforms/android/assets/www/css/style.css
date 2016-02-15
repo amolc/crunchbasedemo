@@ -130,8 +130,13 @@ input[type="text"]{
     right: 31px;
     font-weight: 100;
     color: #fff;
-    top: 4px;
     font-size: 13px;
+}
+.platform-ios .feedback_name{
+  top: 24px;
+}
+.platform-android .feedback_name{
+  top: 6px;
 }
 .popup-container .popup {
     width: 100%;
@@ -162,4 +167,57 @@ a.item.item-icon-left {
 .popup-buttons .button:last-child {
     margin-right: 0px;
     background: none;
+}
+
+/** Automasscomplete css**/
+/*.highlight { background-color:#FFFF00; }*/
+
+#spinner .modal {
+      opacity: 0.5;
+}
+
+#spinner .modelDialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -14px;
+}
+
+ #searchdiv .icon{
+    /*padding-left: 18px;*/
+ }
+ .popoup_heading_limit{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 260px;
+ }
+.search_inpute{
+    border: none;
+    padding: 5px;
+    color: rgb(255, 255, 255);
+}
+.search_btn{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.search_close_btn{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+ .right_ico_alignment{
+    position: absolute;
+    top: 24px;
+    right: 10px;
+ }
+ i.ion-chevron-right {
+    font-size: 25px;
+}
+.bar.bar-balanced.backgroud {
+    border-color: #28a54c;
+    background-color: #237986;
+    background-image: linear-gradient(0deg, #237986, #237986 50%, transparent 50%);
+    color: #fff;
 }

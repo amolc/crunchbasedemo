@@ -1,23 +1,26 @@
 {
-  "name": "templates",
-  "version": "0.0.0",
-  "private": "true",
-  "scripts": {
-    "start": "node ./www"
-  },
+  "name": "crunchbase_search",
+  "version": "1.0.0",
+  "description": "search organization by using crunchbase api ",
+  "main": "app.js",
   "dependencies": {
-    "angular-bootstrap-datetimepicker": "^0.4.0",
-    "async": "^1.5.2",
-    "body-parser": "~1.13.2",
-    "cookie-parser": "~1.3.5",
-    "crunchbase2": "^1.0.0",
-    "debug": "~2.2.0",
-    "express": "~4.13.1",
-    "morgan": "~1.6.1",
-    "mysql": "^2.10.2",
-    "serve-favicon": "~2.3.0"
+    "cookie-parser": "^1.3.5",
+    "body-parser": "^1.13.3",
+    "debug": "^2.2.0",
+    "express": "^4.13.4"
   },
-  "devDependencies": {
-    "gulp": "^3.9.0"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ben-gy/crunchbase_search.git"
+  },
+  "author": "sameer vedpathak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ben-gy/crunchbase_search/issues"
+  },
+  "homepage": "https://github.com/ben-gy/crunchbase_search#readme"
 }
